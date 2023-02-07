@@ -31,6 +31,15 @@ export default {
             { _id: '1234', username: 'John Doe' },
             { _id: '4321', username: 'John Snow' }
           ]
+        },
+        {
+          roomId: '2',
+          roomName: 'Room 2',
+          avatar: '',
+          users: [
+            { _id: '1234', username: 'John Doe' },
+            { _id: '4321', username: 'John Snow' }
+          ]
         }
       ],
       messages: [],

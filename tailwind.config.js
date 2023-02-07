@@ -1,8 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
-  theme: {
-    extend: {},
+  variants: {
+    extend: {
+      textDecoration: ['hover'],
+    },
   },
-  plugins: [],
-}
+  theme: {
+    extend: {
+      width: {
+        72: '18rem',
+      },
+    },
+  },
+};

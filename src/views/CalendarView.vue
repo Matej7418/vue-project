@@ -27,7 +27,6 @@
   </template>
   
   <script>
-  import 'tailwindcss/tailwind.css';
   import 'v-calendar/dist/style.css';
 
   export default {
@@ -118,6 +117,8 @@
   </script>
   
   <style lang="postcss" scoped>
+  @import 'tailwindcss/tailwind.css';
+
   ::-webkit-scrollbar {
     width: 0px;
   }
