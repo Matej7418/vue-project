@@ -17,8 +17,10 @@
     "vue-advanced-chat": "^2.0.7",
     "vue-auth-ui": "^0.1.1",
     "vue-class-component": "^8.0.0-0",
+    "vue-password-strength-meter": "^1.7.2",
     "vue-router": "^4.0.3",
-    "vuex": "^4.0.0"
+    "vuex": "^4.0.0",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",

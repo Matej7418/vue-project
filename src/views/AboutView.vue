@@ -70,7 +70,7 @@ export default {
           senderId: '4321',
           username: 'John Doe',
           date: '13 November',
-          timestamp: '10:20'
+          timestamp: '10:' + (i < 10 ? '0' + i : i)
         })
       }
 

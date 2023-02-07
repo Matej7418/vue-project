@@ -116,11 +116,11 @@
   };
   </script>
   
-  <style lang="postcss" scoped>
+  <style scoped>
   @import 'tailwindcss/tailwind.css';
 
   ::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
   }
   
   ::-webkit-scrollbar-track {
@@ -137,42 +137,37 @@
   
     border-radius: 0;
     width: 100%;
-  
-    & .vc-header {
-      background-color: #f1f5f8;
-      padding: 10px 0;
-    }
-    & .vc-weeks {
-      padding: 0;
-    }
-    & .vc-weekday {
-      background-color: var(--weekday-bg);
-      border-bottom: var(--weekday-border);
-      border-top: var(--weekday-border);
-      padding: 5px 0;
-    }
-    & .vc-day {
-      padding: 0 5px 3px 5px;
-      text-align: left;
-      height: var(--day-height);
-      min-width: var(--day-width);
-      background-color: white;
-      &.weekday-1,
-      &.weekday-7 {
-        background-color: #eff8ff;
+  } .custom-calendar.vc-container.vc-header {
+        background-color: #f1f5f8;
+        padding: 10px 0;
       }
-      &:not(.on-bottom) {
-        border-bottom: var(--day-border);
-        &.weekday-1 {
-          border-bottom: var(--day-border-highlight);
-        }
-      }
-      &:not(.on-right) {
-        border-right: var(--day-border);
-      }
+  .custom-calendar.vc-container.vc-weeks {
+    padding: 0;
+  }
+  .custom-calendar.vc-container.vc-weekday {
+    background-color: var(--weekday-bg);
+    border-bottom: var(--weekday-border);
+    border-top: var(--weekday-border);
+    padding: 5px 0;
+  }
+  .custom-calendar.vc-container.vc-day {
+    padding: 0 5px 3px 5px;
+    text-align: left;
+    height: var(--day-height);
+    min-width: var(--day-width);
+    background-color: white;
+  }  .custom-calendar.vc-container.vc-day.weekday-1, .vc-day.weekday-7 {
+       background-color: #eff8ff;
+     }
+  .custom-calendar.vc-container.vc-day:not(.on-bottom) {
+    border-bottom: var(--day-border);
+  } .custom-calendar.vc-container.vc-day:not(.on-bottom).weekday-1 {
+      border-bottom: var(--day-border-highlight);
     }
-    & .vc-day-dots {
-      margin-bottom: 5px;
-    }
+  .custom-calendar.vc-container.vc-day:not(.on-right) {
+    border-right: var(--day-border);
+  }
+  .custom-calendar.vc-container.vc-day-dots {
+    margin-bottom: 5px;
   }
   </style>
