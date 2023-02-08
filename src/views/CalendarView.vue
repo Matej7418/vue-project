@@ -116,9 +116,7 @@
   };
   </script>
   
-  <style scoped>
-  @import 'tailwindcss/tailwind.css';
-
+  <style lang="postcss">
   ::-webkit-scrollbar {
     width: 0;
   }
