@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { supabase } from '@/supabase.js'
+import supabase from '@/supabaseAuth'
 import { Auth, ThemeBold, css } from 'vue-auth-ui'
 
 const appearance = {

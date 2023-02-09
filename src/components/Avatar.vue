@@ -1,6 +1,6 @@
 <script setup>
 import { ref, toRefs, watch, defineProps, defineEmits } from 'vue'
-import { supabase } from '@/supabase'
+import { supabase } from '@/supabaseAuth'
 
 const prop = defineProps(['path', 'size'])
 const { path, size } = toRefs(prop)

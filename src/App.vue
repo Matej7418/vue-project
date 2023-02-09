@@ -19,7 +19,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { supabase } from '@/supabase'
+import { supabase } from '@/supabaseAuth'
 import Account from "@/components/Account.vue";
 import Auth from "@/components/Auth.vue";
 
@@ -29,8 +29,10 @@ onMounted(() => {
   })
 
   supabase.auth.onAuthStateChange((_, _session) => {
+    console.log("in");
     console.log(_session); 
     this.$store.commit('setSession', _session);
+    console.log("state out");
     console.log(this.$store.state.session);
   })
 })

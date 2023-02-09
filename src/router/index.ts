@@ -1,7 +1,20 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import supabase from '@/supabaseAuth'
+
+function loadPage(view: string) {
+  return () => import(/* webpackChunkName: "view-[request]" */ `@/views/${view}.vue`);
+}
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    name: 'Dashboard',
+    component: loadPage("DashboardView"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
   {
     path: '/home',
     name: 'home',
@@ -10,9 +23,6 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/chat',
     name: 'chat',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "chat" */ '@/views/ChatView.vue')
   },
   {
@@ -31,6 +41,15 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const currentUser = supabase.auth.getUser();
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  if(requiresAuth && !currentUser) next('sign-in');
+  else if(!requiresAuth && currentUser!==null) next("/");
+  else next();
 })
 
 export default router
