@@ -80,16 +80,16 @@ async function signOut() {
   <form class="form-widget" @submit.prevent="updateProfile">
     <Avatar v-model:path="avatar_url" @upload="updateProfile" size="10" />
     <div>
-      <label for="email">Email</label>
+      <label for="email">Email: </label>
       <input id="email" type="text" :value="session.user.email" disabled />
     </div>
     <div>
-      <label for="username">Name</label>
+      <label for="username">Name: </label>
       <input id="username" type="text" v-model="username" />
     </div>
     <div>
-      <label for="website">Website</label>
-      <input id="website" type="website" v-model="website" />
+      <label for="website">Username: </label>
+      <input id="website" type="text" v-model="website" />
     </div>
 
     <div>

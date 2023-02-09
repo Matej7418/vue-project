@@ -1,7 +1,7 @@
 <template>
   <div v-if="session">
     <nav>
-      <router-link to="/">Login 2</router-link> |
+      <router-link to="/">Login</router-link> |
       <router-link to="/chat">Chat</router-link> |
       <router-link to="/calendar">Calendar</router-link> |
       <router-link to="/home">Default</router-link>

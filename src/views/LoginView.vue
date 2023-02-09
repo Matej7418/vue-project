@@ -1,5 +1,6 @@
 <template>
   <div style="width: 40vw; margin: auto;">
+    <!--<MagicLink/>-->
     <Auth
         :providers="['google', 'github']"
         socialLayout="col"
@@ -14,6 +15,7 @@
 <script setup>
 import { supabase } from '@/supabase.js'
 import { Auth, ThemeBold, css } from 'vue-auth-ui'
+import { Auth as MagicLink } from '@/components/Auth'
 
 const appearance = {
   theme: ThemeBold,
