@@ -1,37 +1,37 @@
 <template>
-  <div v-if="session">
+  <div v-if="this.$store.state.session">
     <nav>
-      <router-link to="/">Login 2</router-link> |
+      <router-link to="/">Login</router-link> |
       <router-link to="/chat">Chat</router-link> |
       <router-link to="/calendar">Calendar</router-link> |
       <router-link to="/home">Default</router-link>
     </nav>
     <div class="container" style="padding: 50px 0 100px 0">
-      <Account :session="session" />
+      <Account :session="this.$store.state.session" />
     </div>
   </div>
   <div v-else>
     <router-link to="/login">Login</router-link>
-    <Auth/>
+    <!--<Auth/>-->
   </div>
   <router-view/>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { supabase } from '@/supabase'
 import Account from "@/components/Account.vue";
 import Auth from "@/components/Auth.vue";
 
-const session = ref()
-
 onMounted(() => {
   supabase.auth.getSession().then(({ data }) => {
-    session.value = data.session
+    this.$store.commit('setSession', data.session);
   })
 
   supabase.auth.onAuthStateChange((_, _session) => {
-    session.value = _session
+    console.log(_session); 
+    this.$store.commit('setSession', _session);
+    console.log(this.$store.state.session);
   })
 })
 </script>
