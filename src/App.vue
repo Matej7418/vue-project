@@ -1,5 +1,5 @@
 <template>
-  <div v-if="session">
+  <!--<div v-if="session">
     <nav>
       <router-link to="/">Login</router-link> |
       <router-link to="/chat">Chat</router-link> |
@@ -13,7 +13,13 @@
   <div v-else>
     <router-link to="/login">Login</router-link>
     <Auth/>
-  </div>
+  </div>-->
+  <nav class="bg-slate-200 dark:bg-slate-900">
+    <router-link to="/">Login</router-link> |
+    <router-link to="/chat">Chat</router-link> |
+    <router-link to="/calendar">Calendar</router-link> |
+    <router-link to="/home">Default</router-link>
+  </nav>
   <router-view/>
 </template>
 
@@ -51,12 +57,14 @@ onMounted(() => {
 
 nav {
   padding: 30px;
+  user-select: none;
 
   a {
     font-weight: bold;
     color: #2c3e50;
 
     &.router-link-exact-active {
+      text-decoration: underline;
       color: #42b983;
     }
   }
