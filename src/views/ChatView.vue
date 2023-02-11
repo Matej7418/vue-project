@@ -15,6 +15,7 @@
 
 <script>
 import { register } from 'vue-advanced-chat'
+import axios from 'axios'
 // import { register } from '../../vue-advanced-chat/dist/vue-advanced-chat.es.js'
 register()
 
@@ -26,7 +27,7 @@ export default {
         {
           roomId: '1',
           roomName: 'Room 1',
-          avatar: `https://avatar.oxro.io/avatar.svg?name=Room 1&background=random&length=2`,
+          avatar: 'https://avatar.oxro.io/avatar.svg?name=Room+1&background=random&length=2',
           users: [
             { _id: '1234', username: 'John Doe' },
             { _id: '4321', username: 'John Snow' }
@@ -35,7 +36,7 @@ export default {
         {
           roomId: '2',
           roomName: 'Room 2',
-          avatar: '',
+          avatar: 'https://avatar.oxro.io/avatar.svg?name=Room+2&background=random&length=2',
           users: [
             { _id: '1234', username: 'John Doe' },
             { _id: '4321', username: 'John Snow' }
@@ -69,7 +70,7 @@ export default {
           content: `${reset ? '' : 'paginated'} message ${i + 1}`,
           senderId: '4321',
           username: 'John Doe',
-          date: `13 ${reset ? 'November' : 'December'}`,
+          date: `13 ${reset ? 'December' : 'November'}`,
           timestamp: '10:' + (i < 10 ? '0' + i : i)
         })
       }
@@ -104,6 +105,11 @@ export default {
         ]
       }, 2000)
     }
+  },
+  async mounted() {
+    await axios.get("https://my-json-server.typicode.com/Matej7418/vue-project/")
+        .then((result) => console.log(result.data))
+        .catch((e) => console.log(e))
   }
 }
 </script>
