@@ -7,10 +7,16 @@ export interface Room {
     messages: Message[]
 }
 
-export interface User {
-
+export class User {
+    id: number;
+    username: string;
+    avatar: string;
+    constructor(id: number, username: string, avatar?: string) {
+        this.id = id;
+        this.username = username;
+        this.avatar = avatar || `https://avatar.oxro.io/avatar.svg?name=${username}&background=random&length=2`;
+    }
 }
-
 export interface Task {
     title: string,
     users: number[],
@@ -18,14 +24,15 @@ export interface Task {
     dates: Date | Date[],
     completed: boolean
 }
-
 export type TaskType = "once" | "weekly" | "yearly"
-
 export interface Message {
     sender: number,
     content: string,
     timestamp: number
-    reactions: {
+    reactions?: Reaction[]
+}
+export interface Reaction  { emoji: string, users: number[] }
 
-    }
+export enum TWColor {
+
 }

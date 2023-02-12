@@ -27,7 +27,7 @@
           "content": "Hello.",
           "date": "13 November",
           "reactions": [
-            { "emoji": "", "users": [1] }
+            { "emoji": "😀", "users": [1] }
           ]
         }
       ]
@@ -36,7 +36,8 @@
   "users": [
     {
       "id": 1,
-      "username": "John Doe"
+      "username": "John Doe",
+      "avatar": "https://www.svgrepo.com/show/5125/avatar.svg"
     },
     {
       "id": 2,

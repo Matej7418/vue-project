@@ -105,11 +105,6 @@ export default {
         ]
       }, 2000)
     }
-  },
-  async mounted() {
-    await axios.get("https://my-json-server.typicode.com/Matej7418/vue-project/")
-        .then((result) => console.log(result.data))
-        .catch((e) => console.log(e))
   }
 }
 </script>

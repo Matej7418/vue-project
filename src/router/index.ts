@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: HomeView
   },
@@ -21,9 +21,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "login" */ '../views/Login2View.vue')
   },
   {
-    path: '/',
-    name: 'login2',
-    component: () => import(/* webpackChunkName: "login2" */ '../views/DashboardView.vue')
+    path: '/user/:username',
+    name: 'dashboard',
+    component: () => import(/* webpackChunkName: "dashboard" */ '../views/DashboardView.vue')
   },
   {
     path: '/calendar',

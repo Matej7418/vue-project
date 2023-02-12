@@ -15,10 +15,10 @@
     <Auth/>
   </div>-->
   <nav class="bg-slate-200 dark:bg-slate-900">
-    <router-link to="/">Login</router-link> |
-    <router-link to="/chat">Chat</router-link> |
-    <router-link to="/calendar">Calendar</router-link> |
-    <router-link to="/home">Default</router-link>
+    <router-link :to="{ name:'home' }">Default</router-link> |
+    <router-link :to="{ name:'chat' }">Chat</router-link> |
+    <router-link :to="{ name:'calendar' }">Calendar</router-link> |
+    <router-link :to="{ name:'login' }">Login</router-link>
   </nav>
   <router-view/>
 </template>
@@ -26,10 +26,19 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { supabase } from '@/supabase'
+import { useStore } from 'vuex'
 import Account from "@/components/Account.vue";
 import Auth from "@/components/Auth.vue";
-
+import axios from "axios";
 const session = ref()
+const store = useStore()
+
+function saveData(data) {
+  store.commit("setRooms", data.rooms);
+  store.commit("setUsers", data.users);
+  console.log(data.rooms);
+  console.log(store.state.rooms);
+}
 
 onMounted(() => {
   supabase.auth.getSession().then(({ data }) => {
@@ -40,6 +49,13 @@ onMounted(() => {
     session.value = _session
   })
 })
+
+onMounted(async () => {
+  await axios.get("https://raw.githubusercontent.com/Matej7418/vue-project/main/db.json")
+      .then((result) => saveData(result.data))
+      .catch(function (e) { console.error(e) })
+})
+
 </script>
 
 <style lang="scss">
