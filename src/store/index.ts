@@ -3,17 +3,18 @@ import createPersistedState from 'vuex-persistedstate';
 
 export default createStore({
   state: {
-    rooms: [],
+    rooms: ["UNSET"],
     users: [],
+    session: {}
   },
   getters: {
   },
   mutations: {
     setRooms(state, rooms) {
-      this.rooms = rooms;
+      state.rooms = rooms;
     },
     setUsers(state, users) {
-      this.users = users;
+      state.users = users;
     }
   },
   actions: {

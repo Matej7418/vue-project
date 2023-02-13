@@ -14,12 +14,13 @@
     <router-link to="/login">Login</router-link>
     <Auth/>
   </div>-->
-  <nav class="bg-slate-200 dark:bg-slate-900">
+  <!--<nav class="bg-slate-200 dark:bg-slate-900">
     <router-link :to="{ name:'home' }">Default</router-link> |
     <router-link :to="{ name:'chat' }">Chat</router-link> |
     <router-link :to="{ name:'calendar' }">Calendar</router-link> |
     <router-link :to="{ name:'login' }">Login</router-link>
-  </nav>
+  </nav>-->
+  <NavbarComponent/>
   <router-view/>
 </template>
 
@@ -29,6 +30,7 @@ import { supabase } from '@/supabase'
 import { useStore } from 'vuex'
 import Account from "@/components/Account.vue";
 import Auth from "@/components/Auth.vue";
+import NavbarComponent from "@/components/NavbarComponent.vue";
 import axios from "axios";
 const session = ref()
 const store = useStore()
@@ -36,8 +38,8 @@ const store = useStore()
 function saveData(data) {
   store.commit("setRooms", data.rooms);
   store.commit("setUsers", data.users);
-  console.log(data.rooms);
-  console.log(store.state.rooms);
+  console.log(data);
+  console.log(store.state);
 }
 
 onMounted(() => {
