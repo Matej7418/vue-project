@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-advanced-chat
-        height="calc(100vh - 100px)"
+        height="calc(100vh - 124px)"
         :current-user-id="currentUserId"
         :rooms="JSON.stringify(rooms)"
         :rooms-loaded="true"

@@ -1,10 +1,18 @@
-export interface Room {
-    roomId: number,
-    roomName: string,
-    users: number[],
-    avatar?: string,
-    tasks: Task[],
-    messages: Message[]
+export class Room {
+    roomId: number;
+    roomName: string;
+    users: number[];
+    avatar?: string;
+    tasks: Task[];
+    messages: Message[];
+    constructor(roomId: number, roomName: string, users: number[], tasks: Task[], messages: Message[], avatar?: string) {
+        this.roomId = roomId;
+        this.roomName = roomName;
+        this.users = users;
+        this.tasks = tasks;
+        this.messages = messages;
+        this.avatar = avatar || `https://avatar.oxro.io/avatar.svg?name=${roomName}&background=random&length=2`;
+    }
 }
 
 export class User {
@@ -17,14 +25,16 @@ export class User {
         this.avatar = avatar || `https://avatar.oxro.io/avatar.svg?name=${username}&background=random&length=2`;
     }
 }
+
 export interface Task {
     title: string,
-    users: number[],
+    users: number | number[],
     author?: number,
     dates: Date | Date[],
     completed: boolean
 }
 export type TaskType = "once" | "weekly" | "yearly"
+
 export interface Message {
     sender: number,
     content: string,
@@ -33,6 +43,7 @@ export interface Message {
 }
 export interface Reaction  { emoji: string, users: number[] }
 
-export enum TWColor {
-
+export interface Session {
+    //token: string,
+    userId: number
 }

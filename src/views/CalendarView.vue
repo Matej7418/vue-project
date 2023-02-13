@@ -26,7 +26,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import 'v-calendar/dist/style.css';
 
 export default {
@@ -34,6 +34,7 @@ export default {
     const month = new Date().getMonth();
     const year = new Date().getFullYear();
     const c = 'text-white mx-[10%] ';
+    let attrs = Symbol();
     return {
       masks: {
         weekdays: 'WWW',

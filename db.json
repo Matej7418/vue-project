@@ -31,6 +31,22 @@
           ]
         }
       ]
+    },
+    {
+      "roomId": 2,
+      "roomName": "Room 2",
+      "users": [1, 3],
+      "avatar": "https://www.svgrepo.com/show/111256/house.svg",
+      "tasks": [
+        {
+          "title": "Do Something",
+          "users": 3,
+          "author": 3,
+          "dates": ["2023-02-12T00:00:00.000Z", "2023-02-14T00:00:00.000Z"],
+          "completed": false
+        }
+      ],
+      "messages": []
     }
   ],
   "users": [
