@@ -40,6 +40,7 @@ function saveData(data) {
   store.commit("setUsers", data.users);
   console.log(data);
   console.log(store.state);
+  console.log(store.getters.getCurrentUser.avatar);
 }
 
 onMounted(() => {

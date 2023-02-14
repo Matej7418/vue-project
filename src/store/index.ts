@@ -15,7 +15,7 @@ export const store = createStore<State>({
   state: {
     rooms: [],
     users: [],
-    session: new Session(1)
+    session: new Session(2)
   },
   getters: {
     getUser: (state) => (id: number) => {
@@ -30,6 +30,10 @@ export const store = createStore<State>({
       state.rooms = rooms;
     },
     setUsers(state, users) {
+      state.users = []
+      for(let user in users) {
+        state.users.push(new User(user.id,))
+      }
       state.users = users;
     },
     setSession(state, session) {
