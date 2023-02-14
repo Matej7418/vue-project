@@ -27,14 +27,13 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { supabase } from '@/supabase'
-import key from '@/store'
-import { useStore } from 'vuex'
+import { useStore } from './store'
 import Account from "@/components/Account.vue"
 import Auth from "@/components/Auth.vue"
 import NavbarComponent from "@/components/NavbarComponent.vue"
 import axios from "axios"
 const session = ref();
-const store = useStore(key);
+const store = useStore();
 
 function saveData(data) {
   store.commit("setRooms", data.rooms);

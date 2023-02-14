@@ -43,7 +43,8 @@ export interface Message {
 }
 export interface Reaction  { emoji: string, users: number[] }
 
-export interface Session {
+export class Session {
     //token: string,
-    userId: number
+    userId: number;
+    constructor(userId: number) { this.userId = userId }
 }

@@ -1,12 +1,12 @@
 import { InjectionKey } from 'vue'
-import { createStore, Store } from 'vuex'
+import { createStore, useStore as baseUseStore, Store } from 'vuex'
 import createPersistedState from 'vuex-persistedstate';
-import { Room, User } from '@/interface';
+import { Room, User, Session } from '@/interface';
 
 export interface State {
   rooms: Room[],
   users: User[],
-  session: object //TODO
+  session: Session //TODO
 }
 
 export const key: InjectionKey<Store<State>> = Symbol()
@@ -15,11 +15,14 @@ export const store = createStore<State>({
   state: {
     rooms: [],
     users: [],
-    session: {},
+    session: new Session(1)
   },
   getters: {
     getUser: (state) => (id: number) => {
       return state.users.filter(obj => {return obj.id === id});
+    },
+    getCurrentUser(state) {
+      return state.users.filter(obj => {return obj.id === state.session.userId});
     }
   },
   mutations: {
@@ -41,3 +44,7 @@ export const store = createStore<State>({
       createPersistedState()
   ]
 })
+
+export function useStore() {
+  return baseUseStore(key)
+}
