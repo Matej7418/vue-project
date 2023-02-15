@@ -22,7 +22,7 @@ register()
 export default {
   data() {
     return {
-      currentUserId: '1234',
+      currentUserId: this.$store.state.session.userId.toString(),
       rooms: [
         {
           roomId: '1',

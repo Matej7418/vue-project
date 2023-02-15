@@ -34,13 +34,14 @@ import NavbarComponent from "@/components/NavbarComponent.vue"
 import axios from "axios"
 const session = ref();
 const store = useStore();
-
 function saveData(data) {
   store.commit("setRooms", data.rooms);
   store.commit("setUsers", data.users);
+  store.commit("setSession", store.state.users[2])
   console.log(data);
   console.log(store.state);
-  console.log(store.getters.getCurrentUser.avatar);
+  let u = store.dispatch('getUser', 1);
+  console.log(u);
 }
 
 onMounted(() => {

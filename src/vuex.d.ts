@@ -6,7 +6,7 @@ declare module '@vue/runtime-core' {
     interface State {
         rooms: Room[],
         users: User[],
-        session: Session
+        session: User //TODO
     }
 
     // provide typings for `this.$store`
